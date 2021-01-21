@@ -245,7 +245,7 @@ def _compute_cols(hooks: Sequence[Hook]) -> int:
 
 def _all_filenames(args: argparse.Namespace) -> Collection[str]:
     # these hooks do not operate on files
-    if args.hook_stage in {'post-checkout', 'post-commit'}:
+    if args.hook_stage in {'post-checkout', 'post-commit', 'post-merge'}:
         return ()
     elif args.hook_stage in {'prepare-commit-msg', 'commit-msg'}:
         return (args.commit_msg_filename,)
